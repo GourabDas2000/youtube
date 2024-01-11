@@ -1,0 +1,25 @@
+.smallside{
+    width: 4rem;
+}
+.divi{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: .4rem;
+    border-radius: .2rem;
+    cursor: pointer;
+}
+.divi:hover{
+    background-color: #f2f2f2;
+    color: black;
+}
+
+.divi span:last-child{
+    font-size: calc(.6rem);
+}
+.active3{
+    background-color: black;
+    color: #f2f2f2;
+}

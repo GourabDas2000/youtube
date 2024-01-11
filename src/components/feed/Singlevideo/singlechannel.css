@@ -1,0 +1,32 @@
+.controlside{
+    position: absolute;
+    top: 3.5rem;
+    width: 14.2rem;
+    translate: 0;
+}
+::-webkit-scrollbar{
+    width: 0;
+}
+.controlback{
+    translate: -14.2rem 0;
+}
+.videopagedivider{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 65% 35%;
+    height: 95vh;
+    overflow: scroll;
+}
+.leftsidevideopage{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    
+}
+
+.rightsidevideopage{
+    height: 100%;
+    width: 100%;
+    border:2px solid red;
+    background-color: blue;
+}

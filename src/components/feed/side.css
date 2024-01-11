@@ -1,0 +1,61 @@
+.side{
+    width: 100%; 
+    background-color: #ffffff;
+    height: 92vh;
+    overflow: scroll;
+}
+.element{
+    cursor: pointer;
+    border-bottom: 2px solid #f2f2f2;
+}
+.element:nth-child(2) ,.element:nth-child(3) ,  .element:nth-child(6) , .element:nth-child(5){
+    border-bottom: none;
+}
+.element div{
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 1rem;
+}
+.element div:hover{
+    background-color: #f2f2f2;
+}
+.playlist{
+    display: none;
+}
+.button1{
+    padding-left: 1rem;
+    display: flex;
+    gap: 1rem;
+    height: 2.5rem;
+    align-items: center;
+    border-bottom: 1px solid #f2f2f2;
+    cursor: pointer;
+}
+.button1:hover{
+    background-color: #f2f2f2;
+}
+.element:nth-child(5) div span img , .element:nth-child(6) div span img{
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+}
+.element:nth-child(9) div h1{
+    font-weight: 400;
+
+}
+.icon1{
+    color: red;
+}
+.copyright{
+    padding-left: 1rem;
+}
+.copyright div{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+.active{
+    background-color: #f2f2f2;
+}
