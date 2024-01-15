@@ -13,20 +13,171 @@
 .videopagedivider{
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 65% 35%;
+    grid-template-columns: 68% 32%;
     height: 95vh;
     overflow: scroll;
 }
 .leftsidevideopage{
-    height: 100%;
+    height: 1800px;
     width: 100%;
     display: grid;
+    grid-template-rows: 50% auto;
+}
+.videodetails{
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: 60% 5% 8%  20%;
+    gap: 1rem;
+}
+.videocomp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+.videotitle{
+    padding-left: 2.5rem;
+    font-weight: bolder;
+}
+.channelperation{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 50% 50%;
+}
+.channlesomthing {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 23% 25% auto;
+}
+.channlelogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 }
+.channlelogo img{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50% 50%;
+    background-color: black;
+    cursor: pointer;
+}
+.channelname{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: start;
+    padding-top: 1rem;
+}
+.channelname span{
+    font-size:large;
+    font-weight: bolder;
+    cursor: pointer;
+}
+.channelname p{
+    font-size: small;
+}
+.subscribebtn{    
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.subscribebtn button{
+    height: 2.3rem;
+    width: 8rem;
+    border-radius: 2rem;
+    background-color: black;
+    color: #ffffff;
+    cursor: pointer;
+}
+.channlestats{
+    display: grid;
+    grid-auto-flow: column;
+}
+.likdis{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.like , .dislike {
+    height: 2.5rem;
+    width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.like{
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+.dislike{
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+.share{
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    align-items: center;
+}
+.sharelogo , .morelogo{
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.more{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.like:hover , .dislike:hover , .sharelogo:hover ,.morelogo:hover{
+    background-color: #f2f2f2;
+}
+.description{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 1.5rem;
+    background-color: #f2f2f241;
+    padding-left: 2.5rem;
+    padding-top: 1rem;
+    display: grid;
+    grid-template-rows: auto 95%;
+    cursor: pointer;
+}
+.description:hover{
+    background-color: #f2f2f2;
+}
+.viwedate{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.details p{
+    font-size: calc(1rem);
+    font-weight: 450;
+}
+.clickmore{
+    font-weight: calc(600);
+    
+}
+
+
+.commentdetails{
+    margin-left: 1rem;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: 5% 15% auto;
+    border: 2px solid orange;
+}
+
 
 .rightsidevideopage{
     height: 100%;
     width: 100%;
-    border:2px solid red;
     background-color: blue;
 }

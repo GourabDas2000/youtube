@@ -4,10 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navber from './components/navber/Navber';
 import Feed from './components/feed/Feed';
 import Notification from './Notifcation/Notification';
-import Side from './components/feed/Side';
-import Videodetails from './components/feed/Mainfeed/videotree/Videodetails';
 import Shorts from './components/feed/Shorts/Shorts';
-import Videosfeed from './components/feed/Mainfeed/Videosfeed';
 import Singlevideo from './components/feed/Singlevideo/Singlevideo';
 import Singlechannel from './components/feed/singlechannel/Singlechannel';
 
