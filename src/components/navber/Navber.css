@@ -1,57 +1,71 @@
-
-
-
-.navber{
+.navber {
     height: 3.5rem;
     width: 100%;
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 10% 20% 55% auto auto;
     align-items: center;
-    background-color: var(--background-color);
+    background-color: white;
+    z-index: 1;
 }
-.navber div{
+
+.navber div {
     height: 3.5rem;
     width: 100%;
+}
 
+.div1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.div1{
-    padding-top: 1rem;
-    padding-left: 2rem;
-    
-}
-.MenuOutlinedIcon{
-    width: 80%;
-    height: 90%;
-    font-size: medium;
+
+.div1 span {
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
     cursor: pointer;
+    font-size: medium;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
-.MenuOutlinedIcon:hover{
+
+.div1 span:hover {
     background-color: #f2f2f2;
 }
-.div2 img{
+
+.div2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div2 img {
     height: 90%;
     width: fit-content;
     border-radius: 50%;
 }
-.div3{
+
+.div3 {
     display: flex;
     justify-content: start;
     align-items: center;
     position: relative;
-    
 }
-.div3 input{
+
+.div3 input {
     width: 70%;
     height: 2.2rem;
     border-radius: 1rem;
     border: none;
     outline: none;
-    border: 3px solid  #f2f2f2;
-    padding-left:  2%;
+    border: 3px solid #f2f2f2;
+    padding-left: 2%;
     padding-right: 12%;
 }
+
 .SearchIcon {
     position: absolute;
     top: 26%;
@@ -59,13 +73,14 @@
     height: 2rem;
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
-    cursor: pointer; 
-}
-.SearchIcon :hover{
-   opacity: .5;
+    cursor: pointer;
 }
 
-.CloseIcon{
+.SearchIcon :hover {
+    opacity: .5;
+}
+
+.CloseIcon {
     position: absolute;
     top: 22%;
     right: 38%;
@@ -76,25 +91,67 @@
     text-align: center;
     padding-top: .3rem;
 }
-.toggleclose{
+
+.toggleclose {
     display: none;
 }
-.CloseIcon:hover{
+
+.CloseIcon:hover {
     background-color: #f2f2f2;
 }
-.div4{
+
+.div4 {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.div5{
+
+.div5 {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.div5 img{
+
+.div5 img {
     height: 2.2rem;
     width: 2.2rem;
     border-radius: 50%;
     cursor: pointer;
+}
+
+@media screen and (max-width:1000px) {
+    .navber {
+        grid-template-columns: 10% 15% 50% 10% auto;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .navber {
+        grid-template-columns: 10% 10% 60% 10% auto;
+    }
+    .div2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .div2 img {
+        height: 50%;
+        width: fit-content;
+        border-radius: 50%;
+    }
+    .div3 {
+        justify-content: center;
+    }
+    .div3 input {
+        width: 90%;
+    }
+    .SearchIcon {
+        right: 7%;
+    }
+    .div4 {
+        justify-content: start;
+    }
+    .div5 {
+        justify-content: start;
+    }
 }

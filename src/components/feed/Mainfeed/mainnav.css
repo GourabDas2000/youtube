@@ -1,6 +1,5 @@
-
-.mainnav{
-    width: 95%;
+.mainnav {
+    padding: .5rem 1rem;
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 1rem;
@@ -8,12 +7,33 @@
     overflow-y: hidden;
     gap: 2rem;
     scroll-behavior: smooth;
+    position: relative;
 }
 
-.arrowl{
+.arrowl {
     position: absolute;
-    top: 1;
-    left: 1;
+    top: 8.4%;
+    left: 5%;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #ffffff;
+    padding-left: .4em;
+    padding-top: .2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrowl:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+.arrowr {
+    position: absolute;
+    top: 8.4%;
+    right: 5%;
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
@@ -21,32 +41,21 @@
     padding-left: .4em;
     padding-top: .2rem;
     z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.arrowl:hover{
+
+.arrowr:hover {
     background-color: #f2f2f2;
     cursor: pointer;
 }
-.arrowr{
-    position: absolute;
-    top: 3.4rem;
-    right: 1rem;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    background-color: #ffffff;
-    padding-left: .4em;
-    padding-top: .2rem;
-    z-index: 1000;
-}
-.arrowr:hover{
-    background-color: #f2f2f2;
-    cursor: pointer;
-}
+
 ::-webkit-scrollbar {
     width: 1rem;
 }
 
-.card{
+.card {
     height: 2rem;
     width: max-content;
     border-radius: .8rem;
@@ -57,14 +66,28 @@
     cursor: pointer;
     opacity: .8;
 }
-.card:hover{
+
+.card:hover {
     opacity: 1;
 }
-.card span{
+
+.card span {
     padding: .6rem;
 }
 
-.active2{
+.active2 {
     background-color: black;
     color: #ffffff;
+}
+
+@media screen and (max-width: 1213px) {
+    .mainnav {
+        margin: auto;
+    }
+    .arrowl {
+        top: 5%;
+    }
+    .arrowr {
+        top: 5%;
+    }
 }

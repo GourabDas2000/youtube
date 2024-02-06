@@ -1,0 +1,130 @@
+.searchthumbnil {
+    height: 66%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2%;
+}
+
+.searchthumbnil img {
+    height: 100%;
+    width: 100%;
+    border-radius: 2%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.searchdescript {
+    height: 66%;
+    background-color: #f2f2f2;
+    padding: 1rem;
+    display: grid;
+    grid-template-rows: 15% 5% 30% auto;
+    padding-top: 4%;
+}
+
+.searchtitle {
+    padding-right: 1rem;
+    display: flex;
+    align-items: end;
+    justify-content: start;
+    font-size: calc(.5rem);
+}
+
+.searchposttime {
+    display: flex;
+    align-items: end;
+    font-size: calc(.5rem);
+}
+
+.searchan {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.searchphoto {
+    width: 10%;
+    height: 60%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.searchphoto img {
+    width: 55%;
+    height: 55%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.searchname {
+    font-size: calc(.7rem);
+    font-weight: 600;
+    width: 20%;
+    text-align: justify;
+}
+
+.searchdetails {
+    display: flex;
+    align-items: start;
+    height: 40%;
+    padding-right: 1rem;
+    font-size: calc(.8rem);
+}
+
+@media screen and (max-width:1245px) {
+    .searchtitle {
+        font-size: calc(.4rem);
+    }
+    .searchdetails {
+        font-size: calc(.6rem);
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .searchtitle {
+        font-size: calc(.3rem);
+    }
+    .searchdetails {
+        font-size: calc(.4rem);
+    }
+    .searchname {
+        font-size: calc(.5rem);
+    }
+    .searchposttime {
+        font-size: calc(.5rem);
+    }
+}
+
+@media screen and (max-width:600px) {
+    .searchtitle {
+        font-size: calc(.15rem);
+        margin-bottom: calc(.17rem);
+    }
+    .searchposttime {
+        font-size: calc(.4rem);
+    }
+    .searchname {
+        font-size: calc(.3rem);
+    }
+    .searchdetails {
+        font-size: calc(.3rem);
+    }
+    .searchdescript {
+        padding: .5rem;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .searchtitle {
+        font-size: calc(.11rem);
+    }
+    .searchposttime {
+        font-size: calc(.2rem);
+    }
+    .searchdetails {
+        font-size: calc(.2rem);
+    }
+}

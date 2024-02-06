@@ -1,7 +1,9 @@
-.smallside{
-    width: 4rem;
+.smallside {
+    position: absolute;
+    top: 8%;
 }
-.divi{
+
+.divi {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,15 +13,29 @@
     border-radius: .2rem;
     cursor: pointer;
 }
-.divi:hover{
+
+.divi:hover {
     background-color: #f2f2f2;
     color: black;
 }
 
-.divi span:last-child{
+.divi span:last-child {
     font-size: calc(.6rem);
 }
-.active3{
+
+.active3 {
     background-color: black;
     color: #f2f2f2;
+}
+
+@media screen and (max-width:500px) {
+    .smallside {
+        width: 3rem;
+    }
+    .divi span:last-child {
+        font-size: calc(.4rem);
+    }
+    .divi span:first-child {
+        font-size: calc(.1rem);
+    }
 }

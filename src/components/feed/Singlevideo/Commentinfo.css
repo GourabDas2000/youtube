@@ -1,0 +1,89 @@
+.commentinfo {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+.commentprofile {
+    height: 5%;
+    width: 5%;
+    cursor: pointer;
+}
+
+.commentprofile img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.commentstat {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: 20% 30% 20% 30%;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.commentupper {
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+}
+
+.commentname {
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.commenttime {
+    font-weight: 300;
+    font-size: calc(1rem);
+}
+
+.maincomment {
+    font-size: calc(0.8rem);
+}
+
+.commentlike,
+.commentdislike {
+    cursor: pointer;
+}
+
+.commentlower {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+.reply {
+    width: 4rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reply:hover {
+    background-color: #f2f2f2;
+}
+
+.replies {
+    font-weight: 700;
+    font-size: calc(0.8rem);
+    color: rgb(43, 43, 224);
+    width: 4rem;
+    height: 2rem;
+    border-radius: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.replies:hover {
+    background-color: rgba(92, 92, 149, 0.436);
+}
+
+@media screen and (max-width: 500px) {}

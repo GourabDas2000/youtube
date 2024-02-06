@@ -1,6 +1,7 @@
-.feed_divider{
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: 18% 82%;
+.commonfeed {
+    height: 95vh;
+    width: 85%;
+    margin: auto;
 }
 
+@media screen and (max-width: 1213px) {}

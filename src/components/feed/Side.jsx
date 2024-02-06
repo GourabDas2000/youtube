@@ -1,5 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import Skeleton from 'react-loading-skeleton'
+import React, { useEffect, useState } from 'react';
 import 'react-loading-skeleton/dist/skeleton.css'
 
 import HomeIcon from '@mui/icons-material/Home';
@@ -36,9 +35,11 @@ import FeedbackIcon from '@mui/icons-material/Feedback';
 import CopyrightIcon from '@mui/icons-material/Copyright';
 
 import './side.css';
+import { useNavigate } from 'react-router-dom';
 
 
 function Side(props) {
+  const navigate = useNavigate()
 
   const [open, setopen] = useState(false);
   const [more, setmore] = useState('Show More')
@@ -79,242 +80,316 @@ function Side(props) {
 
     }
   }, [open2])
+  var text = 'Home';
   function swapactive(event) {
     const targetdiv = event.target.closest('.ele')
-    try {
       if (targetdiv) {
-        const text = targetdiv.children[1].textContent
-        props.updateside(text)
+        text = targetdiv.children[1].textContent
       }
+      text && text === "Home"
+        ? props.updateside("sports")
+        : props.updateside(text);
       document.querySelectorAll('.ele').forEach((item) => {
         item.classList.remove('active')
       })
       targetdiv.classList.add('active')
-    }
-    catch{
-      console.log('side')
-    }
   }
 
 
 
   return (
-    <div className='side'>
-      <section className='element' onClick={swapactive}>
-        <div className='ele active'>
-          <span><HomeIcon /></span>
-          <span className='sendtovideo'>Home</span>
+    <div className="side">
+      <section className="element" onClick={swapactive}>
+        <div
+          className="ele active"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          <span>
+            <HomeIcon />
+          </span>
+          <span className="sendtovideo">Home</span>
         </div>
-        <div className='ele'>
-          <span><SwitchAccessShortcutAddIcon /></span>
-          <span className='sendtovideo'>Shorts</span>
+        <div className="ele">
+          <span>
+            <SwitchAccessShortcutAddIcon />
+          </span>
+          <span className="sendtovideo" onClick={navigate('/shorts')}>Shorts</span>
         </div>
-        <div className='ele'>
-          <span><SubscriptionsIcon /></span>
-          <span className='sendtovideo'>SubscriptionsIcon</span>
+        <div className="ele">
+          <span>
+            <SubscriptionsIcon />
+          </span>
+          <span className="sendtovideo">SubscriptionsIcon</span>
         </div>
       </section>
-      <section className='element' onClick={swapactive}>
-        <div style={{cursor:'text'}}>
+      <section className="element" onClick={swapactive}>
+        <div style={{ cursor: "text" }}>
           <h1>You</h1>
-          <span><ChevronRightIcon /></span>
+          <span>
+            <ChevronRightIcon />
+          </span>
         </div>
-        <div className='ele'>
-          <span><TrendingUpIcon /></span>
-          <span className='sendtovideo'>Your Channel</span>
+        <div className="ele">
+          <span>
+            <TrendingUpIcon />
+          </span>
+          <span className="sendtovideo">Your Channel</span>
         </div>
-        <div className='ele'>
-          <span><HistoryIcon /></span>
-          <span className='sendtovideo'>History</span>
+        <div className="ele">
+          <span>
+            <HistoryIcon />
+          </span>
+          <span className="sendtovideo">History</span>
         </div>
-        <div className='ele'>
-          <span><SlideshowIcon /></span>
-          <span className='sendtovideo'>Your videos</span>
+        <div className="ele">
+          <span>
+            <SlideshowIcon />
+          </span>
+          <span className="sendtovideo">Your videos</span>
         </div>
-        <div className='ele'>
-          <span><WatchLaterIcon /></span>
-          <span className='sendtovideo'>Watch Later</span>
+        <div className="ele">
+          <span>
+            <WatchLaterIcon />
+          </span>
+          <span className="sendtovideo">Watch Later</span>
         </div>
       </section>
 
-
-      <section className=' element playlist' onClick={swapactive}>
-        <div className='ele'>
-          <span><ThumbUpOutlinedIcon /></span>
-          <span className='sendtovideo'>Liked Videos</span>
+      <section className=" element playlist" onClick={swapactive}>
+        <div className="ele">
+          <span>
+            <ThumbUpOutlinedIcon />
+          </span>
+          <span className="sendtovideo">Liked Videos</span>
         </div>
-        <div className='ele'>
-          <span><PlaylistPlayOutlinedIcon /></span>
-          <span className='sendtovideo'>Playlist1</span>
+        <div className="ele">
+          <span>
+            <PlaylistPlayOutlinedIcon />
+          </span>
+          <span className="sendtovideo">Playlist1</span>
         </div>
-        <div className='ele'>
-          <span><PlaylistPlayOutlinedIcon /></span>
-          <span className='sendtovideo'>Playlist2</span>
+        <div className="ele">
+          <span>
+            <PlaylistPlayOutlinedIcon />
+          </span>
+          <span className="sendtovideo">Playlist2</span>
         </div>
-        <div className='ele'>
-          <span><PlaylistPlayOutlinedIcon /></span>
-          <span className='sendtovideo'>Playlist3</span>
+        <div className="ele">
+          <span>
+            <PlaylistPlayOutlinedIcon />
+          </span>
+          <span className="sendtovideo">Playlist3</span>
         </div>
       </section>
-      <div className='button1' onClick={() => { setopen(!open) }}>
+      <div
+        className="button1"
+        onClick={() => {
+          setopen(!open);
+        }}
+      >
         <span>{icon1}</span>
         <span>{more}</span>
       </div>
 
-      <section className='element' onClick={swapactive}>
-        <div style={{ cursor: 'text' }}>
+      <section className="element" onClick={swapactive}>
+        <div style={{ cursor: "text" }}>
           <h1>Subcription</h1>
         </div>
-        <div className='ele'>
+        <div className="ele">
           <span>
             <img src="" alt="" />
           </span>
-          <span className='sendtovideo'>abc</span>
+          <span className="sendtovideo">abc</span>
         </div>
-        <div className='ele'>
+        <div className="ele">
           <span>
             <img src="" alt="" />
           </span>
-          <span className='sendtovideo'>abc</span>
+          <span className="sendtovideo">abc</span>
         </div>
-        <div className='ele'>
+        <div className="ele">
           <span>
             <img src="" alt="" />
           </span>
-          <span className='sendtovideo'>abc</span>
+          <span className="sendtovideo">abc</span>
         </div>
-        <div className='ele'>
+        <div className="ele">
           <span>
             <img src="" alt="" />
           </span>
-          <span className='sendtovideo'>abc</span>
+          <span className="sendtovideo">abc</span>
         </div>
       </section>
 
-      <section className='element playlist' onClick={swapactive}>
-        <div className='ele'>
+      <section className="element playlist" onClick={swapactive}>
+        <div className="ele">
           <span>
             <img src="" alt="" />
           </span>
-          <span className='sendtovideo'>abc</span>
+          <span className="sendtovideo">abc</span>
         </div>
-        <div className='ele'>
+        <div className="ele">
           <span>
             <img src="" alt="" />
           </span>
-          <span className='sendtovideo'>abc</span>
+          <span className="sendtovideo">abc</span>
         </div>
-        <div className='ele'>
+        <div className="ele">
           <span>
             <img src="" alt="" />
           </span>
-          <span className='sendtovideo'>abc</span>
+          <span className="sendtovideo">abc</span>
         </div>
-        <div className='ele'>
+        <div className="ele">
           <span>
             <img src="" alt="" />
           </span>
-          <span className='sendtovideo'>abc</span>
+          <span className="sendtovideo">abc</span>
         </div>
       </section>
-      <div className='button1' onClick={() => { setopen2(!open2) }}>
+      <div
+        className="button1"
+        onClick={() => {
+          setopen2(!open2);
+        }}
+      >
         <span>{icon2}</span>
         <span>{more2}</span>
       </div>
 
-      <section className='element' onClick={swapactive}>
-        <div style={{ cursor: 'text' }}>
+      <section className="element" onClick={swapactive}>
+        <div style={{ cursor: "text" }}>
           <h1>Explore</h1>
         </div>
-        <div className='ele'>
-          <span><WhatshotIcon /></span>
-          <span className='sendtovideo'>Trending</span>
+        <div className="ele">
+          <span>
+            <WhatshotIcon />
+          </span>
+          <span className="sendtovideo">Trending</span>
         </div>
-        <div className='ele'>
-          <span><LocalMallIcon /></span>
-          <span className='sendtovideo'>Shopping</span>
+        <div className="ele">
+          <span>
+            <LocalMallIcon />
+          </span>
+          <span className="sendtovideo">Shopping</span>
         </div>
-        <div className='ele'>
-          <span><AudiotrackIcon /></span>
-          <span className='sendtovideo'>Music</span>
+        <div className="ele">
+          <span>
+            <AudiotrackIcon />
+          </span>
+          <span className="sendtovideo">Music</span>
         </div>
-        <div className='ele'>
-          <span><LocalMoviesIcon /></span>
-          <span className='sendtovideo'>Flims</span>
+        <div className="ele">
+          <span>
+            <LocalMoviesIcon />
+          </span>
+          <span className="sendtovideo">Flims</span>
         </div>
-        <div className='ele'>
-          <span><LiveTvIcon /></span>
-          <span className='sendtovideo'>Live</span>
+        <div className="ele">
+          <span>
+            <LiveTvIcon />
+          </span>
+          <span className="sendtovideo">Live</span>
         </div>
-        <div className='ele'>
-          <span><SportsEsportsIcon /></span>
-          <span className='sendtovideo'>Gaming</span>
+        <div className="ele">
+          <span>
+            <SportsEsportsIcon />
+          </span>
+          <span className="sendtovideo">Gaming</span>
         </div>
-        <div className='ele'>
-          <span><NewspaperIcon /></span>
-          <span className='sendtovideo'>News</span>
+        <div className="ele">
+          <span>
+            <NewspaperIcon />
+          </span>
+          <span className="sendtovideo">News</span>
         </div>
-        <div className='ele'>
-          <span><EmojiEventsIcon /></span>
-          <span className='sendtovideo'>Sport</span>
+        <div className="ele">
+          <span>
+            <EmojiEventsIcon />
+          </span>
+          <span className="sendtovideo">Sport</span>
         </div>
-        <div className='ele'>
-          <span><LightbulbIcon /></span>
-          <span className='sendtovideo'>Learning</span>
+        <div className="ele">
+          <span>
+            <LightbulbIcon />
+          </span>
+          <span className="sendtovideo">Learning</span>
         </div>
-        <div className='ele'>
-          <span><StarHalfIcon /></span>
-          <span className='sendtovideo'>Fashion & beauty</span>
+        <div className="ele">
+          <span>
+            <StarHalfIcon />
+          </span>
+          <span className="sendtovideo">Fashion & beauty</span>
         </div>
-        <div className='ele'>
-          <span><PodcastsIcon /></span>
-          <span className='sendtovideo'>Podcasts</span>
-        </div>
-      </section>
-
-      <section className='element' onClick={swapactive}>
-        <div style={{ cursor: 'text' }}>
-          <h1>More from YouTube</h1>
-        </div>
-        <div className='ele'>
-          <span className='icon1'><YouTubeIcon /></span>
-          <span className='sendtovideo'>YouTube Premium</span>
-        </div>
-        <div className='ele'>
-          <span className='icon1'><HexagonIcon /></span>
-          <span className='sendtovideo'>YouTube Studio</span>
-        </div>
-        <div className='ele'>
-          <span className='icon1'><LyricsIcon /></span>
-          <span className='sendtovideo'>YouTube Music</span>
-        </div>
-        <div className='ele'>
-          <span className='icon1'><ChildCareIcon /></span>
-          <span className='sendtovideo'>YouTube Kids</span>
-        </div>
-      </section>
-
-      <section className='element' onClick={swapactive}>
-        <div className='ele'>
-          <span><SettingsIcon /></span>
-          <span className='sendtovideo'>Settings</span>
-        </div>
-        <div className='ele'>
-          <span><FlagIcon /></span>
-          <span className='sendtovideo'>Report history</span>
-        </div>
-        <div className='ele'>
-          <span><HelpIcon /></span>
-          <span className='sendtovideo'>Help</span>
-        </div>
-        <div className='ele'>
-          <span><FeedbackIcon /></span>
-          <span className='sendtovideo'>Send feedback</span>
+        <div className="ele">
+          <span>
+            <PodcastsIcon />
+          </span>
+          <span className="sendtovideo">Podcasts</span>
         </div>
       </section>
 
-      <section className='copyright'>
-        <p>About Press  Copyright Contact us Creator Advertise Developers</p>
+      <section className="element" onClick={swapactive}>
+        <div style={{ cursor: "text" }}>
+          <h1 className="smallthis">More from YouTube</h1>
+        </div>
+        <div className="ele">
+          <span className="icon1">
+            <YouTubeIcon />
+          </span>
+          <span className="sendtovideo">YouTube Premium</span>
+        </div>
+        <div className="ele">
+          <span className="icon1">
+            <HexagonIcon />
+          </span>
+          <span className="sendtovideo">YouTube Studio</span>
+        </div>
+        <div className="ele">
+          <span className="icon1">
+            <LyricsIcon />
+          </span>
+          <span className="sendtovideo">YouTube Music</span>
+        </div>
+        <div className="ele">
+          <span className="icon1">
+            <ChildCareIcon />
+          </span>
+          <span className="sendtovideo">YouTube Kids</span>
+        </div>
+      </section>
+
+      <section className="element" onClick={swapactive}>
+        <div className="ele">
+          <span>
+            <SettingsIcon />
+          </span>
+          <span className="sendtovideo">Settings</span>
+        </div>
+        <div className="ele">
+          <span>
+            <FlagIcon />
+          </span>
+          <span className="sendtovideo">Report history</span>
+        </div>
+        <div className="ele">
+          <span>
+            <HelpIcon />
+          </span>
+          <span className="sendtovideo">Help</span>
+        </div>
+        <div className="ele">
+          <span>
+            <FeedbackIcon />
+          </span>
+          <span className="sendtovideo">Send feedback</span>
+        </div>
+      </section>
+
+      <section className="copyright">
+        <p>About Press Copyright Contact us Creator Advertise Developers</p>
 
         <p>Terms Privacy Policy & Safely How YouTube works Test new features</p>
 
@@ -326,8 +401,7 @@ function Side(props) {
         </div>
       </section>
     </div>
-
-  )
+  );
 
 }
 

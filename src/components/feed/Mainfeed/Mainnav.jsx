@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState ,useContext, useMemo } from 'react';
+import React, { useRef, useState } from 'react';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { usercontext } from '../../../App';
+
 import './mainnav.css';
 function Mainnav(props) { 
-  const {menu , updatemenu , scroll ,updatescroll} = useContext(usercontext)
   const shiftleft = () =>{
     mainref.current.scrollLeft = mainref.current.scrollLeft - 100  ;
   }

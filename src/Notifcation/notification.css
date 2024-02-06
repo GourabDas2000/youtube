@@ -1,21 +1,22 @@
-.notification{
+.notification {
     position: fixed;
     bottom: 2%;
-    left: 98%;
+    left: 96%;
     height: 4rem;
     width: fit-content;
     flex-direction: column;
     align-items: end;
-    gap:2%;
+    gap: 2%;
     z-index: 1000;
     display: flex;
     flex-direction: row;
     justify-content: start;
     align-items: center;
 }
-.notification P{
+
+.notification P {
     height: 2.5rem;
-    width:25rem;
+    width: 25rem;
     position: fixed;
     bottom: inherit;
     left: -1701%;
@@ -29,18 +30,28 @@
     align-items: center;
     z-index: 1000;
 }
-.NotificationsIcon{
+
+.NotificationsIcon {
     border-radius: 50%;
     background-color: rgb(226, 193, 193);
     font-size: calc(.5rem);
     text-align: center;
     padding-top: .2%;
-    cursor: pointer;    
+    cursor: pointer;
     transition: .1s ease-in-out;
 }
-.NotificationsIcon:hover{
-    transform: scale(.9,.9);
+
+.NotificationsIcon:hover {
+    transform: scale(.9, .9);
 }
-.notification p{
+
+.notification p {
     position: absolute;
+}
+
+@media screen and (max-width: 400px) {
+    .notification P {
+        width: 10rem;
+        font-size: calc(.5rem);
+    }
 }
