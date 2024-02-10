@@ -9,7 +9,14 @@ import Subscribebutton from "../Singlevideo/Subscribebutton";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import "./singlechannel.css";
 import Horizontalvideocard from "./Horizontalvideocard";
-import { countdate,countsub,fetchdata,option1,option2,option3 } from "../../Fetchapifunc";
+import {
+  countdate,
+  countsub,
+  fetchdata,
+  option1,
+  option2,
+  option3,
+} from "../../Fetchapifunc";
 
 function Singlechannel() {
   const { menu } = useContext(usercontext);
@@ -56,13 +63,13 @@ function Singlechannel() {
   function changeunsubscribe(localdata) {
     setunsubscribe(localdata);
   }
-  
+
   useEffect(() => {
-    fetchdata(channelurl, option1, setchanneldetails, seterror);
-    fetchdata(channelvideourl, option1, setchanelvideoitmes, seterror);
-    fetchdata(channelupporcursorvideourl,option1,setforyou,seterror);
+    fetchdata(channelurl, option3, setchanneldetails, seterror);
+    fetchdata(channelvideourl, option3, setchanelvideoitmes, seterror);
+    fetchdata(channelupporcursorvideourl, option3, setforyou, seterror);
   }, [name]);
-  
+
   useEffect(() => {
     if (modal) {
       if (Unsubscribe) {
@@ -96,6 +103,7 @@ function Singlechannel() {
       }
     }
   }, [navstatus]);
+
   function scrollhorizon(direction) {
     const width = 200;
     if (allvideos) {
@@ -116,11 +124,11 @@ function Singlechannel() {
     <>
       {menu ? (
         <div className="controlside">
-          <Side updateside={updateside} />
+          <Side updateside={updateside} />{" "}
         </div>
       ) : (
-        <span></span>
-      )}
+        <span> </span>
+      )}{" "}
       <div className="wrappholechannel">
         <div className="coverphoto">
           <img
@@ -321,7 +329,7 @@ function Singlechannel() {
             chanelvideoitmes.map((items, i) => {
               return (
                 <span Key={i}>
-                  <Horizontalvideocard video={items} />
+                  <Horizontalvideocard video={items} />{" "}
                 </span>
               );
             })}{" "}

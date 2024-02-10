@@ -1,7 +1,33 @@
-.Main {
-    width: 86vw;
+.navbermain {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
 }
 
-.hidemain {
-    display: none;
+.forvideocard {
+    width: 100%;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(3, 31%);
+    grid-auto-rows: 58%;
+    justify-content: center;
+    row-gap: 1.5%;
+    column-gap: 1%;
+}
+
+@media screen and (max-width: 1000px) {
+    .forvideocard {
+        grid-template-columns: repeat(2, 46%);
+        grid-auto-rows: 55%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .forvideocard {
+        grid-template-columns: 80%;
+        gap: 3rem;
+        grid-auto-rows: 75%;
+    }
 }

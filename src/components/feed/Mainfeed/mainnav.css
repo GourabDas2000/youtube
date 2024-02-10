@@ -1,19 +1,18 @@
 .mainnav {
-    padding: .5rem 1rem;
+    padding: .5rem;
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 1rem;
-    align-items: center;
-    overflow-y: hidden;
+    grid-auto-columns: minmax(auto, auto);
     gap: 2rem;
+    overflow-y: scroll;
     scroll-behavior: smooth;
     position: relative;
 }
 
 .arrowl {
     position: absolute;
-    top: 8.4%;
-    left: 5%;
+    top: 10.8%;
+    left: 6%;
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
@@ -23,6 +22,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 
 .arrowl:hover {
@@ -32,8 +32,8 @@
 
 .arrowr {
     position: absolute;
-    top: 8.4%;
-    right: 5%;
+    top: 10.8%;
+    right: 1%;
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
@@ -85,9 +85,9 @@
         margin: auto;
     }
     .arrowl {
-        top: 5%;
+        top: 11%;
     }
     .arrowr {
-        top: 5%;
+        top: 11%;
     }
 }

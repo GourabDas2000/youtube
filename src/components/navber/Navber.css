@@ -1,20 +1,21 @@
 .navber {
-    height: 3.5rem;
+    height: 4rem;
     width: 100%;
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 10% 20% 55% auto auto;
+    grid-template-columns: 10% 10% 65% auto 10%;
     align-items: center;
     background-color: white;
     z-index: 1;
 }
 
 .navber div {
-    height: 3.5rem;
+    height: 4rem;
     width: 100%;
 }
 
 .div1 {
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,39 +38,42 @@
 }
 
 .div2 {
+    height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
 }
 
 .div2 img {
-    height: 90%;
+    height: 100%;
     width: fit-content;
     border-radius: 50%;
 }
 
 .div3 {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
-    position: relative;
 }
 
 .div3 input {
-    width: 70%;
-    height: 2.2rem;
-    border-radius: 1rem;
+    font-size: calc(1rem);
+    font-weight: 400;
+    width: 63%;
+    height: 2.8rem;
+    border-radius: 4rem;
     border: none;
     outline: none;
     border: 3px solid #f2f2f2;
     padding-left: 2%;
-    padding-right: 12%;
+    padding-right: 9%;
+    position: relative;
 }
 
 .SearchIcon {
     position: absolute;
-    top: 26%;
-    right: 31%;
+    top: 2.6%;
+    right: 28%;
     height: 2rem;
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
@@ -82,14 +86,15 @@
 
 .CloseIcon {
     position: absolute;
-    top: 22%;
-    right: 38%;
-    height: 2rem;
-    width: 2rem;
+    top: 1.6%;
+    right: 30%;
+    height: 2.5rem;
+    width: 2.5rem;
     border-radius: 50%;
     cursor: pointer;
-    text-align: center;
-    padding-top: .3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .toggleclose {
@@ -121,13 +126,22 @@
 
 @media screen and (max-width:1000px) {
     .navber {
-        grid-template-columns: 10% 15% 50% 10% auto;
+        grid-template-columns: 10% 10% 60% 10% auto;
+    }
+    .SearchIcon {
+        right: 32%;
+    }
+    .div3 input {
+        padding-right: 10%;
+    }
+    .CloseIcon {
+        right: 34%;
     }
 }
 
 @media screen and (max-width:400px) {
     .navber {
-        grid-template-columns: 10% 10% 60% 10% auto;
+        grid-template-columns: 7% 7% 65% 5% auto;
     }
     .div2 {
         display: flex;
@@ -143,15 +157,28 @@
         justify-content: center;
     }
     .div3 input {
-        width: 90%;
+        font-size: calc(.6rem);
+        height: 2rem;
+        width: 80%;
+        padding-left: 2%;
+        padding-right: 19%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    .SearchIcon {
-        right: 7%;
+    .CloseIcon {
+        right: 32%;
     }
     .div4 {
         justify-content: start;
     }
     .div5 {
-        justify-content: start;
+        justify-content: center;
+    }
+    .div5 img {
+        height: 1.5rem;
+        width: 1.5rem;
+        border-radius: 50%;
+        cursor: pointer;
     }
 }

@@ -40,7 +40,6 @@ function App() {
     >
       <BrowserRouter>
         <Navber />
-        <Notification />
         <Suspense fallback={<h1> Loading... </h1>}>
           {" "}
           <Routes>
@@ -56,6 +55,7 @@ function App() {
             <Route path="*" element={<Error />} />
           </Routes>{" "}
         </Suspense>{" "}
+        <Notification />
       </BrowserRouter>{" "}
     </usercontext.Provider>
   );

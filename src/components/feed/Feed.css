@@ -1,7 +1,9 @@
 .commonfeed {
-    height: 95vh;
-    width: 85%;
-    margin: auto;
+    height: 91.3vh;
+    width: 92vw;
+    margin-left: auto;
+    margin-right: 1%;
+    display: grid;
+    grid-template-rows: 10% 90%;
+    grid-template-columns: 100%;
 }
-
-@media screen and (max-width: 1213px) {}

@@ -1,22 +1,21 @@
 .searchpage {
-    height: 101vh;
     width: 83%;
-    overflow: scroll;
     margin-left: auto;
+    height: 91vh;
+}
+
+.childpage {
+    height: 100%;
     display: grid;
-    margin-right: 1rem;
+    overflow-y: scroll;
+    grid-template-columns: 75%;
+    gap: 1%;
 }
 
 .searchcard {
     cursor: pointer;
-    height: 66%;
     width: 100%;
     display: grid;
-    grid-auto-flow: row;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 39% auto;
     border-radius: 2%;
-}
-
-::-webkit-scrollbar {
-    width: 0.5rem;
 }

@@ -1,5 +1,6 @@
 .searchthumbnil {
-    height: 66%;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,26 +8,27 @@
 }
 
 .searchthumbnil img {
-    height: 100%;
-    width: 100%;
     border-radius: 2%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 }
 
+.searchthumbnil img:hover {
+    border-radius: 0;
+}
+
 .searchdescript {
-    height: 66%;
-    background-color: #f2f2f2;
-    padding: 1rem;
+    height: 100%;
+    width: 100%;
+    padding-left: 1rem;
     display: grid;
     grid-template-rows: 15% 5% 30% auto;
     padding-top: 4%;
 }
 
 .searchtitle {
-    padding-right: 1rem;
     display: flex;
-    align-items: end;
+    align-items: center;
     justify-content: start;
     font-size: calc(.5rem);
 }
@@ -34,20 +36,21 @@
 .searchposttime {
     display: flex;
     align-items: end;
-    font-size: calc(.5rem);
+    font-size: calc(.7rem);
+    padding-top: 1rem;
 }
 
 .searchan {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: start;
 }
 
 .searchphoto {
     width: 10%;
     height: 60%;
     display: flex;
-    justify-content: end;
+    justify-content: start;
     align-items: center;
 }
 
@@ -62,7 +65,7 @@
 .searchname {
     font-size: calc(.7rem);
     font-weight: 600;
-    width: 20%;
+    width: 80%;
     text-align: justify;
 }
 
@@ -71,7 +74,9 @@
     align-items: start;
     height: 40%;
     padding-right: 1rem;
-    font-size: calc(.8rem);
+    font-size: calc(.7rem);
+    display: flex;
+    align-items: end;
 }
 
 @media screen and (max-width:1245px) {
@@ -98,7 +103,18 @@
     }
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:700px) {
+    .searchdescript {
+        grid-template-rows: 20% 10% 30% auto;
+        gap: 4%;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .searchdescript {
+        grid-template-rows: 10% 10% 50% auto;
+        gap: 0;
+    }
     .searchtitle {
         font-size: calc(.15rem);
         margin-bottom: calc(.17rem);
@@ -118,11 +134,15 @@
 }
 
 @media screen and (max-width:450px) {
+    .searchdescript {
+        grid-template-rows: 7% 13% 50% auto;
+        gap: 0;
+    }
     .searchtitle {
-        font-size: calc(.11rem);
+        font-size: calc(.1rem);
     }
     .searchposttime {
-        font-size: calc(.2rem);
+        font-size: calc(.3rem);
     }
     .searchdetails {
         font-size: calc(.2rem);

@@ -1,4 +1,8 @@
 export const countsub = (num) => {
+    // if (!isNaN(num)) {
+    //     console.log(num)
+    //     return ''
+    // }
     if (num < 1000) {
         return num
     } else if (num < 1000000) {
@@ -59,10 +63,11 @@ export const countdate = (date) => {
     }
 
 }
-export const fetchdata = async(sidelink, option2, setvideos, seterror) => {
+export const fetchdata = async (sidelink, option, setvideos, seterror) => {
     try {
-        const response = await fetch(sidelink, option2);
+        const response = await fetch(sidelink, option);
         const data = await response.json();
+        console.log(data)
         setvideos(data.items);
         seterror(false);
     } catch (error) {
@@ -70,6 +75,32 @@ export const fetchdata = async(sidelink, option2, setvideos, seterror) => {
         seterror(true);
     }
 };
+export const fetchdata2 = async (sidelink, option, setvideos, setnextpagetoken, seterror) => {
+    try {
+        const response = await fetch(sidelink, option);
+        const data = await response.json();
+        setnextpagetoken(data.nextPageToken)
+        setvideos(data.items)
+        seterror(false)
+    } catch (error) {
+        console.log(error);
+        seterror(true);
+    }
+};
+export const fetchagain = async (link, option, setvideos, setnextpagetoken, seterror) => {
+    try {
+        console.log('fetching')
+        const response = await fetch(link, option)
+        const data = await response.json();
+        setnextpagetoken(data.nextPageToken);
+        setvideos((prev) => [...prev, ...data.items])
+        seterror(false)
+    } catch (error) {
+        console.log(error)
+        seterror(true);
+    }
+
+}
 export const option1 = {
     method: "GET",
     headers: {
@@ -91,3 +122,6 @@ export const option3 = {
         "X-RapidAPI-Host": process.env.REACT_APP_REACT_OPTION3_HOST,
     },
 };
+export const changeKey = {
+
+}

@@ -85,7 +85,11 @@ function Side(props) {
     const targetdiv = event.target.closest('.ele')
       if (targetdiv) {
         text = targetdiv.children[1].textContent
+        // if(text == 'shorts'){
+        // navigate('/shorts')
+        // props.updateside('shorts')
       }
+     
       text && text === "Home"
         ? props.updateside("sports")
         : props.updateside(text);
@@ -115,7 +119,7 @@ function Side(props) {
           <span>
             <SwitchAccessShortcutAddIcon />
           </span>
-          <span className="sendtovideo" onClick={navigate('/shorts')}>Shorts</span>
+          <span className="sendtovideo">Shorts</span>
         </div>
         <div className="ele">
           <span>

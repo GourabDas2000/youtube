@@ -71,103 +71,19 @@ function Mainnav(props) {
           <span>Stock markets</span>
         </div>
         <div className='card'>
-          <span>All</span>
+          <span>Economics </span>
         </div>
         <div className='card'>
-          <span>India national cricket team</span>
+          <span>India national Football team</span>
         </div>
         <div className='card'>
-          <span>Film Criticisms</span>
+          <span>Lionel Messi</span>
         </div>
         <div className='card'>
-          <span>Marvel Studios</span>
+          <span>Cristiano Ronaldo</span>
         </div>
         <div className='card'>
-          <span>JavaScript Mastery</span>
-        </div>
-        <div className='card'>
-          <span>FC Barcelona</span>
-        </div>
-        <div className='card' >
-          <span>Real Madrid CF</span>
-        </div>
-        <div className='card'>
-          <span>Computer Science</span>
-        </div>
-        <div className='card'>
-          <span>Music</span>
-        </div>
-        <div className='card'>
-          <span>React</span>
-        </div>
-        <div className='card'>
-          <span>Stock markets</span>
-        </div>
-        <div className='card'>
-          <span>All</span>
-        </div>
-        <div className='card'>
-          <span>India national cricket team</span>
-        </div>
-        <div className='card'>
-          <span>Film Criticisms</span>
-        </div>
-        <div className='card'>
-          <span>Marvel Studios</span>
-        </div>
-        <div className='card'>
-          <span>Thrillers</span>
-        </div>
-        <div className='card'>
-          <span>FC Barcelona</span>
-        </div>
-        <div className='card' >
-          <span>Real Madrid CF</span>
-        </div>
-        <div className='card'>
-          <span>Computer Science</span>
-        </div>
-        <div className='card'>
-          <span>Music</span>
-        </div>
-        <div className='card'>
-          <span>React</span>
-        </div>
-        <div className='card'>
-          <span>Stock markets</span>
-        </div>
-        <div className='card'>
-          <span>All</span>
-        </div>
-        <div className='card'>
-          <span>India national cricket team</span>
-        </div>
-        <div className='card'>
-          <span>Film Criticisms</span>
-        </div>
-        <div className='card'>
-          <span>Marvel Studios</span>
-        </div>
-        <div className='card'>
-          <span>Thrillers</span>
-        </div>
-        <div className='card'>
-          <span>FC Barcelona</span>
-        </div>
-        <div className='card' >
-          <span>Real Madrid CF</span>
-        </div>
-        <div className='card'>
-          <span>Computer Science</span>
-        </div>
-        <div className='card'>
-          <span>Music</span>
-        </div>
-        <div className='card'>
-          <span>React</span>
-        </div>
-        <div className='card'>
-          <span>Stock markets</span>
+          <span>songs</span>
         </div>
       </div>
       {arrowr}

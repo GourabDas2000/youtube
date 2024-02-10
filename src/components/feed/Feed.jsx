@@ -39,7 +39,7 @@ function Feed() {
       {!size ? (
         <>
           {menu ? (
-            <span className="controlside">
+            <span >
               <Side updateside={updateside} />{" "}
             </span>
           ) : (
@@ -52,7 +52,7 @@ function Feed() {
       ) : (
         <>
           {menu ? (
-            <span className="controlside">
+            <span>
               <Side updateside={updateside} />{" "}
             </span>
           ) : (

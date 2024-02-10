@@ -13,15 +13,27 @@ import Commentinfo from "./Commentinfo";
 import Verticalvideocard from "./Verticalvideocard";
 import Subscribebutton from "./Subscribebutton";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
-import { countdate,countsub, fetchdata,option1,option2,option3 } from "../../Fetchapifunc";
+import {
+  countdate,
+  countsub,
+  fetchagain,
+  fetchdata2,
+  option1,
+  option2,
+  option3,
+} from "../../Fetchapifunc";
 
 function Singlevideo() {
+  const vfeed = useRef();
+  const leftside = useRef();
   const like = useRef();
   const dislike = useRef();
   const navigate = useNavigate();
   const { id, channel } = useParams();
   const { menu, updatemenu } = useContext(usercontext);
   const [text, settext] = useState(<NotificationsActiveIcon />);
+  const [nextpagetoken, setnextpagetoken] = useState();
+  const [nextrelatedpagetoken , setnextrelatedpagetoken] = useState()
   const [error, seterror] = useState(false);
   const [videodetails, setvideodetails] = useState();
   const [commentdetails, setcommentdetails] = useState();
@@ -35,14 +47,14 @@ function Singlevideo() {
   const [side, setside] = useState("Home");
   const showbutton = document.querySelector(".showbutton");
   const videourl = `${process.env.REACT_APP_BASE_URL}videos?part=contentDetails%2Csnippet%2Cstatistics&id=${id}`;
-  const commenturl = `${process.env.REACT_APP_BASE_URL}commentThreads?part=snippet&videoId=${id}&maxResults=10`;
-  const relatedvideourl = `${process.env.REACT_APP_BASE_URL}search?part=snippet&relatedTovideoId=${id}&type=video&maxResults=32`;
+  const commenturl = `${process.env.REACT_APP_BASE_URL}commentThreads?part=snippet&videoId=${id}&maxResults=100`;
+  const relatedvideourl = `${process.env.REACT_APP_BASE_URL}search?part=snippet&relatedTovideoId=${id}&type=video&maxResults=15`;
   const channelurl = `${process.env.REACT_APP_BASE_URL}channels?part=snippet%2Cstatistics&id=${channel}`;
-
-
-    function newtext(localtext) {
-      settext(localtext);
-    }
+  const nextpagelink = `${process.env.REACT_APP_BASE_URL}commentThreads?part=snippet&videoId=${id}&maxResults=100&pageToken=${nextpagetoken}`;
+  const nextpagerelagedlink = `${process.env.REACT_APP_BASE_URL}search?part=snippet&relatedTovideoId=${id}&type=video&maxResults=15&pageToken=${nextrelatedpagetoken}`;
+  function newtext(localtext) {
+    settext(localtext);
+  }
   const updateside = (localside) => {
     setside(localside);
   };
@@ -71,12 +83,30 @@ function Singlevideo() {
       }
     }
   }, [Unsubscribe]);
-  
+
   useEffect(() => {
-      fetchdata(videourl, option1, setvideodetails, seterror);
-      fetchdata(commenturl,option1,setcommentdetails,seterror);
-      fetchdata(relatedvideourl,option1,setrealtedvideo,seterror);
-      fetchdata(channelurl,option1,setchanneldetails,seterror);
+    fetchdata2(videourl, option3, setvideodetails, setnextpagetoken, seterror);
+    fetchdata2(
+      commenturl,
+      option3,
+      setcommentdetails,
+      setnextpagetoken,
+      seterror
+    );
+    fetchdata2(
+      relatedvideourl,
+      option3,
+      setrealtedvideo,
+      setnextrelatedpagetoken,
+      seterror
+    );
+    fetchdata2(
+      channelurl,
+      option3,
+      setchanneldetails,
+      setnextpagetoken,
+      seterror
+    );
   }, [id]);
   useEffect(() => {
     if (showbutton) {
@@ -119,7 +149,63 @@ function Singlevideo() {
       window.removeEventListener("resize", handlequery);
     };
   }, []);
-
+  const additems = () =>{
+    if (leftside.current) {
+      if (
+        leftside.current.clientHeight + leftside.current.scrollTop + 1 >=
+        leftside.current.scrollHeight
+      ) {
+        fetchagain(
+          nextpagelink,
+          option3,
+          setcommentdetails,
+          setnextpagetoken,
+          seterror
+        );
+      }
+    }
+  }
+  const addvideos = () =>{
+    if(vfeed.current){
+      if (
+        vfeed.current.clientHeight + vfeed.current.scrollTop + 1 >=
+        vfeed.current.scrollHeight
+      ) {
+        fetchagain(
+          nextpagerelagedlink,
+          option3,
+          setrealtedvideo,
+          setnextrelatedpagetoken,
+          seterror
+        );
+      }
+    }
+  }
+  useEffect(()=>{
+    const lfside = leftside.current
+    const vfd = vfeed.current  
+    if (size) {
+        if (vfd) {
+          vfd.addEventListener("scroll", addvideos);
+        }
+        if(lfside){
+          lfside.addEventListener("scroll", additems);
+        }
+        if (vfd) {
+          return(()=>{
+            vfd.removeEventListener("scroll", addvideos);
+          })
+        }
+        if(lfside ){
+          return(()=>{
+            lfside.removeEventListener('scroll',additems)
+          })
+        }
+      }    
+    else {
+      console.log("not ok");
+    }
+  },[size])
   return (
     <>
       {menu ? (
@@ -132,7 +218,7 @@ function Singlevideo() {
 
       {size ? (
         <div className="videopagedivider">
-          <div className="leftsidevideopage">
+          <div className="leftsidevideopage" ref={leftside}>
             <div className="videodetails">
               <div className="videocomp">
                 <ReactPlayer
@@ -184,7 +270,7 @@ function Singlevideo() {
                         countsub(
                           channeldetails[0].statistics.subscriberCount
                         )}{" "}
-                      subscribers{" "}
+                      Subscriber{" "}
                     </span>{" "}
                   </div>{" "}
                   <div className="subscribebtn">
@@ -254,10 +340,12 @@ function Singlevideo() {
                     </div>{" "}
                   </div>{" "}
                   <div className="share">
-                    <span className="sharelogo">
-                      <ShareIcon />
-                    </span>{" "}
-                    <p> share </p>{" "}
+                    <div className="sharelogo">
+                      <span>
+                        <ShareIcon />
+                      </span>{" "}
+                      <p> share </p>
+                    </div>{" "}
                   </div>{" "}
                   <div className="more">
                     <span className="morelogo">
@@ -332,12 +420,12 @@ function Singlevideo() {
           </div>
           <div className="rightsidevideopage">
             <div className="videonavber"> Related Videos </div>{" "}
-            <div className="videofeed">
+            <div className="videofeed" ref={vfeed}>
               {" "}
               {relatedvideo &&
                 relatedvideo.map((items, i) => {
                   return (
-                    <span
+                    <div
                       onClick={() =>
                         navigate(
                           `/video/${items.id.videoId}/channel/${items.snippet.channelId}`
@@ -346,7 +434,7 @@ function Singlevideo() {
                       key={i}
                     >
                       <Verticalvideocard video={items} />{" "}
-                    </span>
+                    </div>
                   );
                 })}{" "}
             </div>{" "}
@@ -359,7 +447,7 @@ function Singlevideo() {
               <div className="videocomp">
                 <ReactPlayer
                   url={`https://www.youtube.com/watch?v=${id}`}
-                  width="100%"
+                  width="95%"
                   height="100%"
                   controls
                   className="controlplayer"
@@ -516,7 +604,7 @@ function Singlevideo() {
           </div>
           <div className="rightsidevideopage2">
             <div className="videonavber"> Related Videos </div>{" "}
-            <div className="videofeed">
+            <div className="videofeed2">
               {" "}
               {relatedvideo &&
                 relatedvideo.map((items, i) => {
@@ -538,11 +626,12 @@ function Singlevideo() {
               <p>Show more</p>
             </div>
           </div>
-          <div className="commentdetails2">
+          <div className="commentdetails">
             <div className="commentsnumber">
               <h1>
                 {" "}
-                {videodetails && videodetails[0].statistics.commentCount.toLocaleString()}{" "}
+                {videodetails &&
+                  videodetails[0].statistics.commentCount.toLocaleString()}{" "}
                 Comments{" "}
               </h1>{" "}
             </div>{" "}

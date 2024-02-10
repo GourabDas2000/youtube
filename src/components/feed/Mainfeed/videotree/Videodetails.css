@@ -7,14 +7,20 @@
     cursor: pointer;
 }
 
-.Videodetails:hover {
-    transform: scale(1.02, 1.02);
+.videoupper {
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
 }
 
 .videoupper img {
     height: 100%;
     width: 100%;
     border-radius: 1rem;
+}
+
+.videoupper img:hover {
+    border-radius: 0;
 }
 
 .videolower {
@@ -65,21 +71,9 @@
     border: 2px solid red;
 }
 
-@media screen and (max-width :1213px) {
-    .videolower {
-        font-size: calc(.3rem);
-    }
-}
-
-@media screen and (max-width :950px) {
-    .videolower {
-        font-size: calc(.3rem);
-    }
-}
-
 @media screen and (max-width :376px) {
-    .Videodetails {
+    /* .Videodetails {
         width: 17rem;
         height: 18rem;
-    }
+    } */
 }

@@ -1,5 +1,6 @@
 .channelthum {
     height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,6 +27,7 @@
 
 .channeldesp {
     height: 100%;
+    width: 100%;
     padding: 1rem;
     display: grid;
     grid-auto-flow: column;

@@ -1,31 +1,21 @@
-::-webkit-scrollbar {
-    display: none;
-}
-
 .videopagedivider {
     display: grid;
     grid-template-columns: 68% auto;
-    height: 101vh;
+    height: 91vh;
     column-gap: 1rem;
-    background-color: rgb(254, 254, 254);
 }
 
 .leftsidevideopage {
-    height: 100%;
-    grid-area: 1/1/3/2;
-    display: grid;
-    grid-template-rows: 76% auto;
-    gap: 15rem;
+    width: 100%;
     overflow: scroll;
 }
 
 .rightsidevideopage {
-    height: 100%;
-    grid-area: 1/2/3/3;
+    height: 92vh;
+    width: 100%;
     display: grid;
     grid-auto-flow: column;
-    grid-template-rows: 3% auto;
-    overflow: scroll;
+    grid-template-rows: 4% 96%;
 }
 
 .commentdetails {
@@ -37,10 +27,9 @@
 
 .videodetails {
     width: 100%;
-    height: 100%;
+    height: 1000px;
     display: grid;
-    grid-template-rows: 90% auto auto auto;
-    gap: 1rem;
+    grid-template-rows: 57% 10% 10% 20%;
 }
 
 .videocomp {
@@ -51,6 +40,9 @@
 }
 
 .videotitle {
+    display: flex;
+    justify-content: start;
+    align-items: center;
     padding-left: 2.5rem;
     font-weight: bolder;
 }
@@ -80,11 +72,11 @@
 }
 
 .channelname {
-    padding-top: 1rem;
+    margin: auto 0;
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    align-items: start;
+    align-items: center;
+    justify-content: center;
 }
 
 .channelname span:first-child {
@@ -139,9 +131,9 @@
 .like,
 .dislike {
     height: 2.5rem;
-    width: 4rem;
+    width: 40%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     cursor: pointer;
 }
@@ -163,7 +155,25 @@
     align-items: center;
 }
 
-.sharelogo,
+.sharelogo {
+    display: flex;
+    width: 80%;
+    height: 40%;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 2rem;
+}
+
+.sharelogo p,
+.sharelogo span {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .3rem;
+}
+
 .morelogo {
     cursor: pointer;
     height: 2.5rem;
@@ -259,13 +269,16 @@
 }
 
 .inputfiled {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-right: 1rem;
 }
 
 .inputfiled input {
     border: none;
     outline: none;
-    width: 100%;
+    width: 90%;
     border-bottom: solid 1px black;
 }
 
@@ -303,13 +316,16 @@
 .videonavber {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .videofeed {
-    padding-top: 2rem;
     display: grid;
-    grid-auto-rows: 24%;
-    overflow: scroll;
+    grid-auto-columns: 100%;
+    grid-auto-rows: 28%;
+    gap: 1.5%;
+    overflow-y: scroll;
+    flex-wrap: nowrap;
 }
 
 .showbutton {
@@ -354,6 +370,13 @@
     display: none;
 }
 
+@media screen and (max-width:700px) {
+    .modal {
+        left: 12%;
+        top: -120%;
+    }
+}
+
 
 /* for ModalUnsubscribe.jsx */
 
@@ -376,32 +399,51 @@
     gap: 0.8rem;
 }
 
-@media screen and (max-width: 1200px) {
-    .videofeed {
-        grid-auto-rows: 12.8%;
+@media screen and (max-width:700px) {
+    .Modalunsubscribe {
+        width: 20rem;
     }
-    .controlside {
-        position: absolute;
-        top: 10%
+}
+
+@media screen and (max-width:450px) {
+    .Modalunsubscribe {
+        width: 15rem;
+        height: 8rem;
+    }
+}
+
+
+/* ============================================= */
+
+@media screen and (max-width: 1213px) {
+    .videofeed {
+        grid-auto-rows: 32%;
     }
 }
 
 @media screen and (max-width: 1000px) {
     .videopagedivider2 {
-        height: 100vh;
+        height: 92vh;
         display: grid;
-        grid-template-rows: 70% 13% auto;
-        gap: 15%;
+        grid-template-rows: 1000px 700px auto;
         overflow: scroll;
     }
-    .leftsidevideopage2 {
-        padding: 1%;
-    }
     .rightsidevideopage2 {
-        grid-template-rows: 3% auto 1%;
+        height: 100%;
+        grid-template-rows: 50px 600px 50px;
         padding: 0.5rem 1rem;
     }
+    .videofeed2 {
+        height: 600px;
+        display: grid;
+        grid-auto-rows: 22%;
+        grid-template-columns: 100%;
+        gap: 1rem;
+        overflow: scroll;
+    }
     .showmorebutton {
+        margin-top: .5rem;
+        height: 50px;
         cursor: pointer;
         color: blue;
         font-weight: 400;
@@ -412,67 +454,36 @@
         justify-content: center;
         align-items: center;
     }
-    .commentdetails2 {
-        height: 15rem;
-        margin-top: 501%;
-    }
-    .videocomp {
-        border-radius: 1rem;
-    }
-    .videofeed {
-        display: grid;
-        grid-auto-rows: 3%;
-    }
 }
 
 @media screen and (max-width: 500px) {
-    .videopagedivider2 {
-        width: 100vw;
-        gap: 40%;
-    }
-    .leftsidevideopage2 {
-        width: 90%;
-        margin-right: 1rem;
-        margin-bottom: 1rem;
-    }
-    .videocomp {
-        width: 100%;
-        height: 100%;
-    }
-    .videotitle {
-        font-size: calc(0.7em);
-        padding: 0.5rem;
-    }
-    .channelperation {
-        width: 94%;
-    }
     .channlelogo img {
-        height: 1.3rem;
-        width: 1.3rem;
+        height: 2rem;
+        width: 2rem;
     }
     .channlesomthing {
-        grid-template-columns: 20% 30% auto;
+        padding-left: 1rem;
+        grid-template-columns: 20% 30% 50%;
         gap: 0.1rem;
     }
     .channelname span:first-child {
-        font-size: calc(0.3rem);
+        font-size: calc(0.6rem);
     }
     .channelname span:last-child {
-        font-size: calc(0.3rem);
+        font-size: calc(0.5rem);
     }
     .channlestats {
         gap: 0.7rem;
     }
     .subscribebtn {
         justify-content: center;
-        padding-right: 0.3rem;
     }
     .subscribebtn span {
-        width: 3.6rem;
-        font-size: calc(0.5rem);
+        width: 4.8rem;
+        font-size: calc(0.7rem);
     }
     .likdis {
-        font-size: calc(0.4rem);
+        font-size: calc(0.6rem);
     }
     .share {
         font-size: calc(0.8rem);
@@ -480,25 +491,22 @@
     .sharelogo {
         font-size: calc(0.1rem);
     }
-    .rightsidevideopage2 {
-        width: 100%;
-    }
     .videofeed {
         display: grid;
         grid-auto-rows: 3.3%;
     }
-    .commentdetails2 {
-        height: 13rem;
-        margin-top: 961%;
-    }
     .modifiecomment {
         gap: 2rem;
+        padding-right: 2rem;
     }
 }
 
-@media screen and (max-width: 400px) {
-    .commentdetails2 {
-        height: 10rem;
-        margin-top: 1101%;
+@media screen and (max-width: 450px) {
+    .subscribebtn span {
+        font-size: calc(.3rem);
+    }
+    .videodetails {
+        height: 900px;
+        grid-template-rows: 40% 7% 13% 20%;
     }
 }
