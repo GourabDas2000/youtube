@@ -63,7 +63,7 @@ export const countdate = (date) => {
     }
 
 }
-export const fetchdata = async (sidelink, option, setvideos, seterror) => {
+export const fetchdata = async(sidelink, option, setvideos, seterror) => {
     try {
         const response = await fetch(sidelink, option);
         const data = await response.json();
@@ -75,7 +75,7 @@ export const fetchdata = async (sidelink, option, setvideos, seterror) => {
         seterror(true);
     }
 };
-export const fetchdata2 = async (sidelink, option, setvideos, setnextpagetoken, seterror) => {
+export const fetchdata2 = async(sidelink, option, setvideos, setnextpagetoken, seterror) => {
     try {
         const response = await fetch(sidelink, option);
         const data = await response.json();
@@ -87,7 +87,7 @@ export const fetchdata2 = async (sidelink, option, setvideos, setnextpagetoken, 
         seterror(true);
     }
 };
-export const fetchagain = async (link, option, setvideos, setnextpagetoken, seterror) => {
+export const fetchagain = async(link, option, setvideos, setnextpagetoken, seterror) => {
     try {
         console.log('fetching')
         const response = await fetch(link, option)
@@ -122,6 +122,13 @@ export const option3 = {
         "X-RapidAPI-Host": process.env.REACT_APP_REACT_OPTION3_HOST,
     },
 };
-export const changeKey = {
-
+const option = [option1, option2, option3]
+export const changeKey = (error, seterror) => {
+    console.log(error)
+    var i = 2
+    if (error) {
+        return option[i + 1]
+    } else {
+        return option[i]
+    }
 }

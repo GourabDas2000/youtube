@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef} from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import "./search.css";
 import { useParams } from "react-router-dom";
 import { usercontext } from "../../../App";
@@ -6,10 +6,17 @@ import Side from "../Side";
 import Smallside from "../Smallside";
 import Searchcard from "./Searchcard";
 import Channelcard from "./Channelcard";
-import { option1,option2,option3, fetchdata2,fetchagain } from "../../Fetchapifunc";
+import {
+  option1,
+  option2,
+  option3,
+  fetchdata2,
+  fetchagain,
+  changeKey,
+} from "../../Fetchapifunc";
 
 function Search() {
-  const chaildclass = useRef()
+  const chaildclass = useRef();
   const { Searchid } = useParams();
   const { menu } = useContext(usercontext);
   const [nextpagetoken, setnextpagetoken] = useState("");
@@ -28,35 +35,37 @@ function Search() {
     setsmallside(localsmallside);
   }
   useEffect(() => {
-    fetchdata2(searchlink, option3, setvideos, setnextpagetoken,seterror);
+    // const finalOption = changeKey(error, seterror);
+    //console.log(finalOption)
+    fetchdata2(searchlink, option3, setvideos, setnextpagetoken, seterror);
   }, [Searchid]);
   const additems = () => {
-    if(chaildclass.current){
+    if (chaildclass.current) {
       if (
         chaildclass.current.scrollTop + chaildclass.current.clientHeight + 1 >=
         chaildclass.current.scrollHeight
       ) {
-         fetchagain(
-           searchnextpage,
-           option2,
-           setvideos,
-           setnextpagetoken,
-           seterror
-         );
+        fetchagain(
+          searchnextpage,
+          option2,
+          setvideos,
+          setnextpagetoken,
+          seterror
+        );
       }
     }
-  }
-  useEffect(()=>{
-     const child = chaildclass.current
-     if(child){
-        child.addEventListener('scroll',additems)
-     }
-     if(child){
-       return () => {
-         child.removeEventListener("scroll", additems);
-       }
-     }
-  })
+  };
+  useEffect(() => {
+    const child = chaildclass.current;
+    if (child) {
+      child.addEventListener("scroll", additems);
+    }
+    if (child) {
+      return () => {
+        child.removeEventListener("scroll", additems);
+      };
+    }
+  });
   return (
     <>
       {menu ? (
